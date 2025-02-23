@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% load custom_filters %}
+
+<div class="text-center pt-5 mt-5">
+  <h1 class="text-center">{{post.title}} </h1>
+
+  {% comment %} <h2 class="my-2 h5">{{post.date|date:'F jS Y'}}</h2>
+  <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid rounded-circle img-sm m-3 border-post"/> {% endcomment %}
+
+  <h2 class="my-2 h5">{{ post.date|date:'F jS Y' }}</h2>
+  <a href="{{ post.youtube }}" target="_blank">
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid rounded-circle img-sm m-3 border-post"/>
+  </a>
+
+  <div class="pb-2">
+    {{ post.content|format_content|safe }}
+  </div>
+</div>
+
+<hr />
+
+{% endblock content %}
+
+
+
+
