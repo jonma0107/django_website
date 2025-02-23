@@ -1,0 +1,267 @@
+body {
+  background: #090909;
+
+}
+.bg-black {
+  background: #000;
+}
+
+.logo {
+  width: 65px;
+  height: 65px;  
+}
+.navbar {
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.profile {
+  width: 250px;
+  height: 350px;
+  border: 2px solid #008cffad;
+}
+
+/* POSTS */
+.title-posts {
+  padding-top: 85px;
+}
+
+/* HOVER */
+.card-project:hover {
+  border: 1px solid #008cffad;
+  cursor: pointer;
+}
+.nav-link:hover{
+  color: #fff; /* Nuevo color al hacer hover */
+  transition: color 0.3s ease; /* Agrega una transición suave para hacer el cambio de color más gradual */
+}
+/* Dimensiones imagen post_detail */
+.img-sm {
+  max-width: 50%; 
+}
+.border-post{
+border: 2px solid #008cffad;
+}
+
+/* BUTTON */
+.buttonHover {
+  background: transparent;
+  color: #fff;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  padding: 20px 30px;
+  perspective: 30rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.308);
+}
+
+.buttonHover::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  background: linear-gradient(320deg, #008cffad, rgba(128, 0, 128, 0.308));
+  z-index: 1;
+  transition: background 3s;
+}
+
+.buttonHover:hover::before {
+  animation: rotate 1s;
+  transition: all .5s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+/* SPAN */
+
+/* auto writing */
+
+.fullStack {
+  display: block;
+  font-family: sans-serif;
+  white-space: nowrap;
+  border-right: 10px outset;
+  height: 30px;
+  width: 42ch;
+  margin-bottom: 15px;
+  overflow: hidden;
+  color: #008cffad;
+
+  animation: typing 15s steps(42) infinite, blink .6s infinite step-end alternate, erase 15s steps(42) infinite;
+}
+
+@keyframes typing {
+  0%, 30%, 100% { width: 0 }
+  40%, 70% { width: 42ch }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+@keyframes erase {
+  0%, 30%, 100% { width: 43ch }
+  40%, 70% { width: 0 }
+}
+
+.fullStack-color{
+  color: #008cffad;
+}
+
+/* MEDIA QUERYS */
+
+@media (max-width: 1060px) {
+  .fullStack {
+    animation: none; /* Desactivar la animación */
+    border-right: hidden;
+  }
+}
+
+@media (max-width: 1000px) {
+  .col-md-8 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+/* Consulta de medios para centrar y ajustar el contenido de fullStack en pantallas más pequeñas */
+@media (max-width: 1000px) {
+  .fullStack {
+    text-align: center;
+    max-width: 100%; /* Evita que se expanda más allá del ancho de la pantalla */
+    margin-left: auto;
+    margin-right: auto;
+    
+    white-space: wrap;
+  }
+}
+
+/* ********************************************************************************** */
+/* ********************************************************************************** */
+/* ********************************************************************************** */
+
+/* Consulta de medios para apilar elementos uno debajo del otro en pantallas más pequeñas */
+@media (max-width: 400px) and (min-width: 401px) {
+  .d-flex {
+    flex-direction: column;
+    align-items: center; /* Opcional: para centrar horizontalmente */
+  }
+
+  .d-flex .btn {
+    margin-bottom: 10px; /* Ajusta el espacio entre los botones según sea necesario */
+  }
+}
+
+@media (min-width: 1200px) {
+  .d-flex {
+    flex-direction: column;
+    /*align-items: center; /* Opcional: para centrar horizontalmente */
+  }
+
+  .d-flex .btn {
+    margin-bottom: 10px; /* Ajusta el espacio entre los botones según sea necesario */
+  }
+}
+
+@media (min-width: 1546px) {
+  .d-flex {
+    flex-direction: row;
+    align-items: center; /* Opcional: para centrar horizontalmente */
+  }
+
+  .d-flex .btn {
+    margin-bottom: 10px; /* Ajusta el espacio entre los botones según sea necesario */
+  }
+}
+
+/* ********************************************************************************** */
+/* ********************************************************************************** */
+/* ********************************************************************************** */
+
+
+/* Consulta de medios para colocar elementos uno encima del otro en pantallas más pequeñas */
+@media (max-width: 1000px) {
+  .m-4 .card-project .row {
+    flex-direction: column;
+    align-items: center; /* Opcional: para centrar horizontalmente */
+    
+  }
+}
+
+@media (max-width: 768px) {
+  .m-4 .card-project .row {
+    flex-direction: column;
+    text-align: center;
+    max-width: 100%; /* Evita que se expanda más allá del ancho de la pantalla */
+    margin-left: auto;
+    margin-right: auto;   
+    white-space: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .posts{
+    display: none;
+  }
+}
+
+@media (max-width: 1355px) {
+  .git-demo {
+    flex-direction: column;
+    text-align: center;
+    max-width: 100%; 
+    margin-left: auto;
+    margin-right: auto;   
+    white-space: wrap;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 991px) {
+  header  {
+    flex-direction: column;           
+  }
+}
+
+@media (max-width: 991px) {
+  .img-profile  {    
+    margin-left: auto;
+    margin-right: auto;              
+  }
+}
+
+@media (max-width: 991px) {
+  .project-one {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;  
+  }
+
+  .d-flex .btn {   
+    margin-bottom: 10px; /* Ajusta el espacio entre los botones según sea necesario */
+  }
+
+  .btn {
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+   
+  }
+}
+
