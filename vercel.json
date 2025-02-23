@@ -5,7 +5,7 @@
         "config": { 
             "maxLambdaSize": "15mb",
             "runtime": "python3.12",
-            "buildCommand": "apt-get update && apt-get install -y libjpeg-dev && pip install --no-cache-dir pillow"
+            "buildCommand": "apt-get update && apt-get install -y gettext libjpeg-dev && pip install --no-cache-dir pillow && django-admin compilemessages && python manage.py collectstatic --noinput"
         }
     }],
     "routes": [
