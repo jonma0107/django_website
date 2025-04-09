@@ -44,7 +44,7 @@ DEBUG = env("DEBUG")
 
 # render
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
-ALLOWED_HOSTS = ['https://jonathanmeza.com.co','jonathanmeza.com.co', 'www.jonathanmeza.com.co', 'localhost', '.vercel.app']
+ALLOWED_HOSTS = ['https://jonathanmeza.com.co','jonathanmeza.com.co', 'www.jonathanmeza.com.co', 'localhost', '.vercel.app', '.leapcell.app']
 
 # Application definition
 
