@@ -2,28 +2,43 @@
 
 {% block content %}
 
-{% load custom_filters %}
+{% load custom_filters i18n %}
 
-<div class="text-center pt-5 mt-5">
-  <h1 class="text-center">{{post.title}} </h1>
+<div class="container pt-5 mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+      <article class="blog-post-detail">
+        <header class="text-center mb-5">
+          <h1 class="display-4 fw-bold mb-3 text-gradient">{{post.title}}</h1>
+          <p class="text-light-50 italic h6">{{ post.date|date:"F d, Y"|upper }}</p>
 
-  {% comment %} <h2 class="my-2 h5">{{post.date|date:'F jS Y'}}</h2>
-  <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid rounded-circle img-sm m-3 border-post"/> {% endcomment %}
+          <div class="post-media-container my-4">
+            <a href="{{ post.youtube }}" target="_blank" class="d-inline-block position-relative">
+              <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid rounded shadow-lg border-gold"
+                style="max-height: 400px; width: auto;" />
+              {% if post.youtube %}
+              <div class="play-overlay">
+                <i class="fas fa-play-circle fa-3x"></i>
+              </div>
+              {% endif %}
+            </a>
+          </div>
+        </header>
 
-  <h2 class="my-2 h5">{{ post.date|date:'F jS Y' }}</h2>
-  <a href="{{ post.youtube }}" target="_blank">
-      <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid rounded-circle img-sm m-3 border-post"/>
-  </a>
+        <section class="post-body lh-lg fs-5">
+          {{ post.content|format_content|safe }}
+        </section>
 
-  <div class="pb-2">
-    {{ post.content|format_content|safe }}
+        <footer class="mt-5 pt-4 border-top text-center">
+          <a href="{% url 'post:post' %}?blog_clicked=true" class="buttonHover rounded-0 btn btn-md px-5">
+            {% trans "Volver al Blog" %}
+          </a>
+        </footer>
+      </article>
+    </div>
   </div>
 </div>
 
 <hr />
 
 {% endblock content %}
-
-
-
-
