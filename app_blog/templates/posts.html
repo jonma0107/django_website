@@ -1,38 +1,36 @@
-{% extends 'layout.html' %} 
+{% extends 'layout.html' %}
 
-{% load i18n %} 
+{% load i18n %}
 
 {% block content %}
 
-<h1 class="text-center title-posts">{% trans "POSTS" %}</h1>
+<h1 class="text-center display-4 fw-bold my-5"><span class="text-gradient">{% trans "POSTS" %}</span></h1>
 
-{% for post in posts %}
-
-<div class="m-4">
-  <div class="card card-body bg-black card-project">
-    <div class="row">
-      <div class="col-3">
-        <img
-          src="{{post.image.url}}"
-          alt="{{post.title}}"
-          class="posts img-fluid"
-        />
-      </div>
-      <div class="col-9">
-        <h2>{{post.title}}</h2>
-        <p>{{post.description|truncatechars:50}}</p>
-        <h5 style="font-style: italic">{{post.date|date:'M d Y'|upper}}</h5>
-        <a
-          href="{% url 'post:post_detail' post.id %}?blog_clicked=true"
-          class="buttonHover rounded-0 btn-sm btn"
-        >
-          {% trans "Read more" %}
-        </a>
+<div class="container">
+  <div class="row">
+    {% for post in posts %}
+    <div class="col-12 mb-4">
+      <div class="card card-body bg-black border-gold shadow-lg hover-lift">
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center mb-3 mb-md-0">
+            <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid rounded shadow-sm border-gold-thin"
+              style="max-height: 180px; object-fit: cover;" />
+          </div>
+          <div class="col-md-9">
+            <h2 class="h3 fw-bold text-gradient mb-2">{{post.title}}</h2>
+            <p class="text-light-50 mb-3">{{post.description|default:post.content|truncatechars:150}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-light-50 small italic"><i class="far fa-calendar-alt me-1"></i> {{ post.date|date:"d M Y"|upper }}</span>
+              <a href="{% url 'post:post_detail' post.id %}?blog_clicked=true" class="buttonHover rounded-0 btn-sm btn">
+                {% trans "Read more" %}
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    {% endfor %}
   </div>
 </div>
-
-{% endfor %} 
 
 {% endblock content %}
