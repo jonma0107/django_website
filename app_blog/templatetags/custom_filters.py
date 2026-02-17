@@ -4,8 +4,12 @@ register = template.Library()
 
 @register.filter(name='format_content')
 def format_content(value):
-    # Cuenta los saltos de línea y decide el formato
-    if value.count('\n') > 2:  # Ajusta este número según tus necesidades
-        return f'<pre>{value}</pre>'
-    else:
-        return f'<p>{value}</p>'
+    if not value:
+        return ""
+    # Dividimos por saltos de línea dobles para crear párrafos
+    paragraphs = value.split('\n\n')
+    formatted = ""
+    for p in paragraphs:
+        content = p.replace("\n", "<br>")
+        formatted += f'<p class="blog-paragraph">{content}</p>'
+    return formatted
