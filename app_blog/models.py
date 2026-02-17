@@ -7,12 +7,13 @@ from parler.models import TranslatableModel, TranslatedFields
 class Post(TranslatableModel):
   translations = TranslatedFields(
         title = models.CharField(max_length=150, verbose_name=_("titulo"), null=True),
+        description = models.CharField(max_length=250, verbose_name=_("descripcion"), null=True, blank=True),
         content = models.TextField(verbose_name=_("contenido"))
     ) 
   
   image = models.ImageField(upload_to='blog/images/')
   youtube = models.URLField(blank=True)
-  date = models.DateField(datetime.date.today)
+  date = models.DateField(default=datetime.date.today)
 
   # def __str__(self):
   #     return self.title
